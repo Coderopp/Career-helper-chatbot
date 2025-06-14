@@ -511,122 +511,135 @@ Career Recommendation Schema
     "salary_info": "$75,000 - $150,000",
     "job_outlook": "Very High Demand"
 }
+```
 
+---
 
-📁 Project Structure
-.
-├── app.py
-├── components
-│   ├── career_cards.py
-│   ├── chat_interface.py
-│   └── option_selector.py
-├── core
-│   ├── career_counselor.py
-│   ├── chroma_manager.py
-│   ├── flow_manager.py
-│   ├── groq_client.py
-│   └── llm_manager.py
-├── data
-│   ├── career_data.json
-│   ├── career_embeddings.py
-│   └── sample_careers.py
-├── .env.example
-├── .gitignore
-├── prompts
-│   ├── career_mapping
+## 📁 Project Structure
+
+```
+career_chatbot/
+├── 📄 README.md                     # This comprehensive documentation
+├── ⚙️ requirements.txt              # Python dependencies
+├── 🚀 setup.py                      # Database initialization script
+├── 🎯 app.py                        # Main Streamlit application
+├── 📝 .env.example                  # Environment variables template
+├── 🔧 .streamlit/config.toml        # Streamlit configuration
+│
+├── 🖥️ components/                   # UI Components
+│   ├── chat_interface.py           # Main conversation interface
+│   ├── career_cards.py             # Career recommendation display
+│   └── option_selector.py          # User input selection widgets
+│
+├── 🧠 core/                         # Core Business Logic
+│   ├── career_counselor.py         # Main orchestration class
+│   ├── llm_manager.py              # AI/LLM integration
+│   ├── flow_manager.py             # Conversation state management
+│   ├── chroma_manager.py           # Vector database operations
+│   └── groq_client.py              # Groq API integration
+│
+├── 📊 data/                         # Data Layer
+│   ├── career_data.json            # 109 comprehensive career profiles
+│   ├── career_embeddings.py        # Vector embedding generation
+│   └── sample_careers.py           # Sample data for testing
+│
+├── 📝 prompts/                      # AI Prompt Templates
+│   ├── preference_extraction/       # User preference analysis
+│   │   ├── interest_extraction.txt
+│   │   ├── skill_assessment.txt
+│   │   └── values_identification.txt
+│   ├── career_mapping/              # Career matching prompts
+│   │   ├── stem_careers.txt
 │   │   ├── arts_careers.txt
 │   │   ├── general_mapping.txt
 │   │   ├── sports_careers.txt
-│   │   └── stem_careers.txt
-│   ├── explanation_generation
+│   │   └── general_mapping.txt
+│   ├── explanation_generation/      # Recommendation explanations
 │   │   └── career_explanation.txt
-│   ├── fallback
-│   │   └── clarifying_questions.txt
-│   └── preference_extraction
-│       ├── interest_extraction.txt
-│       ├── skill_assessment.txt
-│       └── values_identification.txt
-├── README.md
-├── requirements.txt
-├── runtime.txt
-├── setup.py
-└── .streamlit
-    ├── config.toml
-    └── secrets.toml.template
+│   └── fallback/                    # Error handling & clarification
+│       └── clarifying_questions.txt
+│
+└── 🛠️ utils/                        # Utility Functions
+    ├── config.py                   # Configuration management
+    ├── data_processor.py           # Data processing utilities
+    └── pdf_generator.py            # Report generation (future)
+```
 
+---
 
-🤝 Contributing
-Development Guidelines
-Code Style:
+## 🤝 Contributing
 
-Follow PEP 8 Python style guidelines
-Use meaningful variable and function names
-Add docstrings for all classes and methods
-Maintain consistent file structure
+### Development Guidelines
 
-Adding New Features:
+**Code Style**:
+- Follow PEP 8 Python style guidelines
+- Use meaningful variable and function names
+- Add docstrings for all classes and methods
+- Maintain consistent file structure
 
-Create feature branch from main
-Implement feature with comprehensive testing
-Update documentation as needed
-Submit pull request with detailed description
+**Adding New Features**:
+1. Create feature branch from main
+2. Implement feature with comprehensive testing
+3. Update documentation as needed
+4. Submit pull request with detailed description
 
-Prompt Engineering:
+**Prompt Engineering**:
+- All prompts stored in `prompts/` directory
+- Use consistent formatting and structure
+- Include examples and edge case handling
+- Test prompts across different user scenarios
 
-All prompts stored in prompts/ directory
-Use consistent formatting and structure
-Include examples and edge case handling
-Test prompts across different user scenarios
+### Future Roadmap
 
-Future Roadmap
-Phase 1 Enhancements:
+**Phase 1 Enhancements**:
+- [ ] Advanced personality assessment integration
+- [ ] Industry-specific deep-dive conversations
+- [ ] Real-time job market data integration
+- [ ] Multi-language support
 
- Advanced personality assessment integration
- Industry-specific deep-dive conversations
- Real-time job market data integration
- Multi-language support
+**Phase 2 Features**:
+- [ ] User account system with conversation history
+- [ ] PDF report generation for career recommendations
+- [ ] Integration with learning platforms (Coursera, Udemy)
+- [ ] Company culture matching
 
-Phase 2 Features:
+**Phase 3 Scaling**:
+- [ ] Mobile app development
+- [ ] Enterprise B2B version for HR departments
+- [ ] Advanced analytics and user behavior insights
+- [ ] API marketplace for third-party integrations
 
- User account system with conversation history
- PDF report generation for career recommendations
- Integration with learning platforms (Coursera, Udemy)
- Company culture matching
+---
 
-Phase 3 Scaling:
+## 📊 Performance Metrics
 
- Mobile app development
- Enterprise B2B version for HR departments
- Advanced analytics and user behavior insights
- API marketplace for third-party integrations
+### System Performance
+- **Response Time**: Sub-2-second average for career recommendations
+- **Database Size**: 109 comprehensive career profiles with full metadata
+- **Embedding Dimensions**: 384-dimensional vectors using all-MiniLM-L6-v2
+- **Prompt Templates**: 9 specialized templates for different conversation stages
+- **Conversation States**: 7 distinct flow states with smart transitions
 
+### User Experience Metrics
+- **Conversation Completion Rate**: Target 85%+ user journey completion
+- **Recommendation Relevance**: Vector similarity scores above 0.75 threshold
+- **User Satisfaction**: Measured through follow-up questions and engagement
+- **Average Session Duration**: 8-12 minutes for complete career discovery
 
-📊 Performance Metrics
-System Performance
+---
 
-Response Time: Sub-2-second average for career recommendations
-Database Size: 109 comprehensive career profiles with full metadata
-Embedding Dimensions: 384-dimensional vectors using all-MiniLM-L6-v2
-Prompt Templates: 9 specialized templates for different conversation stages
-Conversation States: 7 distinct flow states with smart transitions
+## 🎉 Conclusion
 
-User Experience Metrics
-
-Conversation Completion Rate: Target 85%+ user journey completion
-Recommendation Relevance: Vector similarity scores above 0.75 threshold
-User Satisfaction: Measured through follow-up questions and engagement
-Average Session Duration: 8-12 minutes for complete career discovery
-
-
-🎉 Conclusion
 The Career Discovery Chatbot represents a comprehensive solution for AI-powered career guidance, combining advanced machine learning techniques with thoughtful user experience design. The system demonstrates proficiency in:
 
-Full-Stack Development: From UI components to database management
-AI/ML Integration: LLM orchestration and vector search implementation  
-System Architecture: Modular, scalable design patterns
-Product Development: User-centered design and iterative improvement
-Documentation: Professional-grade technical documentation
+- **Full-Stack Development**: From UI components to database management
+- **AI/ML Integration**: LLM orchestration and vector search implementation  
+- **System Architecture**: Modular, scalable design patterns
+- **Product Development**: User-centered design and iterative improvement
+- **Documentation**: Professional-grade technical documentation
 
 This project showcases the ability to design, implement, and deploy a production-ready AI application that solves real-world problems through innovative technology integration.
 
-Built with ❤️ using Python, Streamlit, ChromaDB, and Groq LLM APIs
+---
+
+*Built with ❤️ using Python, Streamlit, ChromaDB, and Groq LLM APIs*
