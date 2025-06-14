@@ -2,10 +2,20 @@ import streamlit as st
 import os
 from components.chat_interface import render_chat_interface # Import the function
 
+# Set environment variables for deployment compatibility
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["OMP_NUM_THREADS"] = "1"
+
 # Main Streamlit app
 st.set_page_config(layout="wide", page_title="Career Discovery Chatbot")
 
 st.title("Career Discovery Chatbot")
+
+# Check for required environment variables
+if not os.getenv("GROQ_API_KEY"):
+    st.error("⚠️ GROQ_API_KEY environment variable is required")
+    st.info("Please add your Groq API key to Streamlit Cloud secrets")
+    st.stop()
 
 # Initialize session state
 if 'user_data' not in st.session_state:
