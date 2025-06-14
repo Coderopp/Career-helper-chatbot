@@ -1,0 +1,174 @@
+flowchart TD
+    %% Start Flow
+    A[👋 Welcome Screen] --> B{User Ready?}
+    B -->|Yes| C[📝 Context Check]
+    B -->|Maybe Later| Z[💭 End Session]
+    
+    %% Context Check Stage
+    C --> D{Select Stage}
+    D -->|Student| E[🎓 Student Path]
+    D -->|College Student| F[📚 College Path]
+    D -->|Professional| G[💼 Professional Path]
+    D -->|Career Switcher| H[🔄 Switcher Path]
+    
+    %% Interest Exploration Stage
+    E --> I[🔍 Interest Exploration]
+    F --> I
+    G --> I
+    H --> I
+    
+    I --> J{Input Method}
+    J -->|Categories| K[📊 Category Selection]
+    J -->|Freeform| L[✍️ Text Input]
+    J -->|Both| M[🔗 Combined Input]
+    
+    %% LLM Analysis Stage
+    K --> N[🧠 LLM Analysis]
+    L --> N
+    M --> N
+    
+    N --> O{LLM Available?}
+    O -->|Yes| P[⚡ AI Processing]
+    O -->|No| Q[🔄 Fallback Analysis]
+    
+    %% Preference Extraction
+    P --> R[📋 Preference Extraction]
+    R --> S[🎯 Interest Analysis]
+    R --> T[🛠️ Skill Assessment]
+    R --> U[💎 Value Identification]
+    
+    %% Confidence Assessment
+    S --> V{Confidence Check}
+    T --> V
+    U --> V
+    
+    V -->|High| W[✅ High Confidence]
+    V -->|Medium| X[⚠️ Medium Confidence]
+    V -->|Low| Y[❓ Low Confidence]
+    
+    %% Career Matching
+    W --> AA[🎯 Career Matching]
+    X --> AA
+    Y --> BB[❓ Clarifying Questions]
+    
+    BB --> I
+    Q --> AA
+    
+    %% Career Recommendation Engine
+    AA --> CC{Matching Method}
+    CC -->|LLM Mapping| DD[🤖 AI Career Mapping]
+    CC -->|Vector Search| EE[🔍 Semantic Search]
+    
+    DD --> FF[📊 Domain Analysis]
+    FF --> GG{Career Domain}
+    GG -->|STEM| HH[💻 STEM Careers]
+    GG -->|Arts| II[🎨 Creative Careers]
+    GG -->|Sports| JJ[⚽ Sports Careers]
+    GG -->|General| KK[🌐 General Careers]
+    
+    %% Vector Search Path
+    EE --> LL[🔢 Embedding Generation]
+    LL --> MM[📏 Similarity Calculation]
+    MM --> NN[🎯 Top Matches]
+    
+    %% Results Convergence
+    HH --> OO[📋 Career Results]
+    II --> OO
+    JJ --> OO
+    KK --> OO
+    NN --> OO
+    
+    %% Results Evaluation
+    OO --> PP{Results Found?}
+    PP -->|Yes| QQ[✅ Display Careers]
+    PP -->|No| RR[🔄 Refine Search]
+    
+    RR --> BB
+    
+    %% Career Detail Exploration
+    QQ --> SS[📖 Career Details]
+    SS --> TT{User Action}
+    TT -->|View Details| UU[📊 Detailed View]
+    TT -->|Explore More| VV[🔍 More Careers]
+    TT -->|Get Report| WW[📄 PDF Generation]
+    TT -->|Next Steps| XX[🚀 Action Planning]
+    
+    %% Detailed Career View
+    UU --> YY[👤 Personalized Explanation]
+    UU --> ZZ[🛠️ Skills Breakdown]
+    UU --> AAA[🎓 Education Requirements]
+    UU --> BBB[💰 Salary Information]
+    UU --> CCC[🏢 Companies & Opportunities]
+    UU --> DDD[📈 Career Progression]
+    UU --> EEE[🎯 Personality Match]
+    
+    %% User Actions from Detail View
+    YY --> FFF{Next Action}
+    ZZ --> FFF
+    AAA --> FFF
+    BBB --> FFF
+    CCC --> FFF
+    DDD --> FFF
+    EEE --> FFF
+    
+    FFF -->|Back to List| VV
+    FFF -->|New Search| I
+    FFF -->|Get PDF| WW
+    FFF -->|Next Steps| XX
+    
+    %% More Careers Exploration
+    VV --> GGG[📊 Alternative Careers]
+    GGG --> QQ
+    
+    %% PDF Report Generation
+    WW --> HHH[📝 Generate Summary]
+    HHH --> III[📋 Action Items]
+    III --> JJJ[📊 Career Comparison]
+    JJJ --> KKK[📄 Download PDF]
+    KKK --> XX
+    
+    %% Next Steps & Action Planning
+    XX --> LLL[🎯 Immediate Actions]
+    XX --> MMM[📚 Learning Resources]
+    XX --> NNN[⏰ Timeline Planning]
+    XX --> OOO[🔗 External Links]
+    
+    %% Final Actions
+    LLL --> PPP{Continue?}
+    MMM --> PPP
+    NNN --> PPP
+    OOO --> PPP
+    
+    PPP -->|Explore More| I
+    PPP -->|Start Over| A
+    PPP -->|End Session| QQQ[✨ Success End]
+    
+    %% End States
+    Z --> RRR[😴 Session Paused]
+    QQQ --> SSS[🎉 Goals Achieved]
+    
+    %% Progress Tracking (Side annotations)
+    A -.-> T1[Step 1/9]
+    C -.-> T2[Step 2/9]
+    I -.-> T3[Step 3/9]
+    N -.-> T4[Step 4/9]
+    AA -.-> T5[Step 5/9]
+    QQ -.-> T6[Step 6/9]
+    UU -.-> T7[Step 7/9]
+    XX -.-> T8[Step 8/9]
+    QQQ -.-> T9[Step 9/9]
+    
+    %% Styling
+    classDef startEnd fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    classDef process fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef decision fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef llm fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef result fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    classDef progress fill:#fce4ec,stroke:#880e4f,stroke-width:1px
+    
+    class A,QQQ,SSS startEnd
+    class C,I,N,AA,UU,XX process
+    class B,D,J,O,V,CC,GG,PP,TT,FFF,PPP decision
+    class P,R,S,T,U,DD,FF llm
+    class QQ,OO,WW result
+    class T1,T2,T3,T4,T5,T6,T7,T8,T9 progress

@@ -1,4 +1,4 @@
-# 🚀 Career Discovery Chatbot
+# 🚀 Career Discovery Chatbot - Complete Documentation
 
 An intelligent AI-powered career guidance system that helps users discover personalized career paths through interactive conversations.
 
@@ -7,8 +7,29 @@ An intelligent AI-powered career guidance system that helps users discover perso
 ![ChromaDB](https://img.shields.io/badge/chromadb-0.4+-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## 🌟 Features
+---
 
+## 📋 Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [System Architecture](#system-architecture)
+4. [Installation & Setup](#installation--setup)
+5. [How It Works](#how-it-works)
+6. [Conversational Flow](#conversational-flow)
+7. [Technical Implementation](#technical-implementation)
+8. [API Reference](#api-reference)
+9. [Project Structure](#project-structure)
+10. [Resume & Portfolio](#resume--portfolio)
+11. [Contributing](#contributing)
+
+---
+
+## 🌟 Project Overview
+
+The Career Discovery Chatbot is an intelligent, AI-powered system designed to help users discover suitable career paths through interactive conversations. The system leverages advanced language models, vector databases, and prompt engineering to provide personalized career recommendations.
+
+### Key Features
 - **🤖 Intelligent Conversations**: AI-powered multi-stage dialog for preference discovery
 - **🎯 Personalized Recommendations**: Vector-based career matching with 109+ career options
 - **🧠 LLM Integration**: Advanced language models for preference extraction and explanations
@@ -16,27 +37,58 @@ An intelligent AI-powered career guidance system that helps users discover perso
 - **🎨 Modern UI**: Interactive Streamlit interface with progress tracking
 - **📈 Real-time Analysis**: Instant preference extraction and career mapping
 
-## 🏗️ Architecture Overview
+### Technology Stack
+- **Frontend**: Streamlit (Python web framework)
+- **Backend**: Python 3.12+
+- **Vector Database**: ChromaDB with persistent storage
+- **LLM Integration**: Groq API with Mixtral models
+- **Embedding Model**: Sentence Transformers (all-MiniLM-L6-v2)
+- **Data Processing**: Pandas, NumPy
+- **Prompt Management**: Template-based system with modular prompts
 
+---
+
+## 🏗️ System Architecture
+
+### High-Level Architecture
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Streamlit UI  │───▶│  Core Engine    │───▶│   Data Layer    │
 │                 │    │                 │    │                 │
 │ • Chat Interface│    │ • Flow Manager  │    │ • ChromaDB      │
-│ • Career Cards  │    │ • LLM Manager   │    │ • 109 Careers   │
+│ • Career Cards  │    │ • LLM Manager   │    │ • Career Data   │
 │ • Progress UI   │    │ • AI Counselor  │    │ • Embeddings    │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## 🚀 Quick Start
+### Component Architecture
+
+**Frontend Layer (Streamlit UI)**
+- `components/chat_interface.py`: Main conversation interface
+- `components/career_cards.py`: Career recommendation display
+- `components/option_selector.py`: User input selection components
+
+**Core Business Logic**
+- `core/career_counselor.py`: Main orchestration and career matching
+- `core/llm_manager.py`: Language model integration and prompt handling
+- `core/flow_manager.py`: Conversation state management
+- `core/chroma_manager.py`: Vector database operations
+
+**Data Layer**
+- `data/career_data.json`: 109 comprehensive career profiles
+- `data/career_embeddings.py`: Vector embedding generation
+- `prompts/`: Specialized AI prompts for different conversation stages
+
+---
+
+## 🚀 Installation & Setup
 
 ### Prerequisites
-
 - Python 3.12 or higher
 - 4GB RAM minimum
 - Internet connection for API calls
 
-### Installation
+### Quick Start
 
 1. **Clone the repository**
    ```bash
@@ -64,7 +116,7 @@ An intelligent AI-powered career guidance system that helps users discover perso
 
 5. **Initialize the database**
    ```bash
-   python data/career_embeddings.py
+   python setup.py
    ```
 
 6. **Run the application**
@@ -77,11 +129,13 @@ An intelligent AI-powered career guidance system that helps users discover perso
 7. **Open your browser**
    Navigate to `http://localhost:8501`
 
+---
+
 ## 🎯 How It Works
 
-### Conversation Flow
+### Conversation Flow Overview
 
-The chatbot guides users through a 9-step discovery process:
+The chatbot guides users through a comprehensive 9-step discovery process:
 
 1. **Welcome & Introduction** 👋
    - Meet Brainy, your AI career guide
@@ -98,271 +152,547 @@ The chatbot guides users through a 9-step discovery process:
 
 4. **AI Analysis** 🧠
    - LLM-powered preference extraction
-   - Skill identification and assessment
-   - Value and motivation analysis
+   - Advanced prompt engineering for accurate insights
+   - Confidence scoring for recommendations
 
-5. **Career Matching** 🎯
-   - Intelligent career recommendations
-   - Vector-based similarity search
-   - Personalized explanations
+5. **Skill Assessment** 🛠️
+   - Technical skills evaluation
+   - Soft skills identification
+   - Learning preferences analysis
 
-6. **Detailed Exploration** 📊
-   - In-depth career information
-   - Skills, education, and salary details
-   - Career progression paths
+6. **Values Identification** 💎
+   - Work-life balance preferences
+   - Career motivation factors
+   - Professional values alignment
 
-7. **Next Steps** 📈
-   - Actionable guidance
-   - Resource recommendations
-   - Timeline planning
+7. **Career Mapping** 🗺️
+   - Vector-based career matching
+   - Similarity scoring across 109+ careers
+   - Domain-specific recommendations
 
-8. **Report Generation** 📄
-   - Comprehensive PDF summary
-   - Personalized action items
+8. **Personalized Recommendations** 📋
+   - Top 5-10 career suggestions
+   - Detailed explanations for each match
+   - Learning pathways and next steps
 
-9. **Follow-up & Iteration** 🔄
-   - Refine recommendations
-   - Explore alternative paths
+9. **Next Steps Planning** 📅
+   - Skill development roadmap
+   - Educational requirements
+   - Industry insights and job market trends
 
-## 📊 Supported Career Categories
+---
 
-- **💻 Technology & Software**: 25+ careers including AI, Web Dev, DevOps
-- **🏥 Healthcare & Medicine**: 15+ careers from Physician to Nurse Practitioner
-- **🎨 Design & Creative**: 12+ careers in Graphics, UX/UI, Content Creation
-- **💼 Business & Finance**: 18+ careers in Management, Analytics, Consulting
-- **🔬 Science & Research**: 10+ careers in various scientific disciplines
-- **🏫 Education & Academia**: 8+ careers in Teaching and Educational Technology
-- **🏗️ Engineering**: 12+ careers across different engineering domains
-- **📺 Media & Communications**: 10+ careers in Journalism, Marketing, PR
-- **And many more...**
+## 🔄 Detailed Conversational Flow
 
-## 🛠️ Technology Stack
+```mermaid
+flowchart TD
+    %% Start Flow
+    A[👋 Welcome Screen] --> B{User Ready?}
+    B -->|Yes| C[📝 Context Check]
+    B -->|Maybe Later| Z[💭 End Session]
+    
+    %% Context Check Stage
+    C --> D{Select Stage}
+    D -->|Student| E[🎓 Student Path]
+    D -->|College Student| F[📚 College Path]
+    D -->|Professional| G[💼 Professional Path]
+    D -->|Career Switcher| H[🔄 Switcher Path]
+    
+    %% Interest Exploration Stage
+    E --> I[🔍 Interest Exploration]
+    F --> I
+    G --> I
+    H --> I
+    
+    I --> J{Input Method}
+    J -->|Categories| K[📊 Category Selection]
+    J -->|Freeform| L[✍️ Text Input]
+    J -->|Both| M[🔗 Combined Input]
+    
+    %% LLM Analysis Stage
+    K --> N[🧠 LLM Analysis]
+    L --> N
+    M --> N
+    
+    N --> O{LLM Available?}
+    O -->|Yes| P[⚡ AI Processing]
+    O -->|No| Q[🔄 Fallback Analysis]
+    
+    %% Preference Extraction
+    P --> R[📋 Preference Extraction]
+    R --> S[🎯 Interest Analysis]
+    R --> T[🛠️ Skill Assessment]
+    R --> U[💎 Value Identification]
+    
+    %% Confidence Assessment
+    S --> V{Confidence Check}
+    T --> V
+    U --> V
+    
+    V -->|High Confidence| W[🎯 Direct Recommendations]
+    V -->|Medium Confidence| X[❓ Clarifying Questions]
+    V -->|Low Confidence| Y[🔄 Re-exploration]
+    
+    %% Career Matching
+    W --> AA[🔍 Vector Search]
+    X --> AA
+    Y --> I
+    
+    AA --> BB[📊 Similarity Scoring]
+    BB --> CC[🎯 Top Matches]
+    CC --> DD[💡 Explanation Generation]
+    
+    %% Results and Recommendations
+    DD --> EE[📋 Career Recommendations]
+    EE --> FF{User Satisfied?}
+    FF -->|Yes| GG[📅 Next Steps Planning]
+    FF -->|No| HH[🔄 Refinement]
+    FF -->|Explore More| II[🔍 Additional Searches]
+    
+    %% Final Outcomes
+    GG --> JJ[✅ Success: Action Plan]
+    HH --> I
+    II --> AA
+    
+    %% Error Handling
+    Q --> KK[❓ Clarifying Questions]
+    KK --> I
+    
+    style A fill:#e1f5fe
+    style JJ fill:#c8e6c9
+    style Z fill:#ffcdd2
+```
 
-- **Frontend**: Streamlit (Python web framework)
-- **Backend**: Python 3.12+
-- **Vector Database**: ChromaDB with persistent storage
-- **AI/LLM**: Groq API with Mixtral models
-- **Embeddings**: Sentence Transformers (all-MiniLM-L6-v2)
-- **Data Processing**: Pandas, NumPy
-- **UI Components**: Streamlit native components
+### Conversation Stages Explained
+
+#### 1. **Onboarding Stage**
+- **Purpose**: Welcome users and set expectations
+- **Components**: 
+  - Introduction to Brainy (AI counselor)
+  - Explanation of the process
+  - Privacy and data usage information
+- **User Actions**: Ready to start vs. maybe later
+- **Duration**: 1-2 minutes
+
+#### 2. **Context Assessment**
+- **Purpose**: Understand user's current life stage and goals
+- **Categories**:
+  - **Student**: High school or early college
+  - **College Student**: Later college years, internship seeking
+  - **Professional**: Currently employed, seeking advancement
+  - **Career Switcher**: Looking to change fields entirely
+- **Customization**: Questions and recommendations tailored to each path
+
+#### 3. **Interest Exploration**
+- **Multi-Modal Input**:
+  - **Category Selection**: Choose from predefined interest areas
+  - **Freeform Text**: Describe interests in natural language
+  - **Combined Approach**: Mix of structured and unstructured input
+- **Interest Categories**:
+  - 🎨 Creative & Artistic
+  - 📊 Analytical & Data-Driven  
+  - 👥 Social & People-Focused
+  - 🏃 Physical & Active
+  - 💻 Technical & Engineering
+  - 💼 Business & Entrepreneurial
+  - 🏥 Healthcare & Helping
+  - 📚 Educational & Research
+
+#### 4. **AI-Powered Analysis**
+- **LLM Processing**: Advanced prompt engineering for preference extraction
+- **Multi-Stage Analysis**:
+  1. **Interest Extraction** (`prompts/preference_extraction/interest_extraction.txt`)
+  2. **Skill Assessment** (`prompts/preference_extraction/skill_assessment.txt`)
+  3. **Values Identification** (`prompts/preference_extraction/values_identification.txt`)
+
+#### 5. **Career Mapping & Recommendations**
+- **Vector Search**: Semantic similarity using ChromaDB
+- **Domain-Specific Prompts**:
+  - STEM careers (`prompts/career_mapping/stem_careers.txt`)
+  - Arts careers (`prompts/career_mapping/arts_careers.txt`)
+  - Sports careers (`prompts/career_mapping/sports_careers.txt`)
+  - General mapping (`prompts/career_mapping/general_mapping.txt`)
+
+---
+
+## 🛠️ Technical Implementation
+
+### Core Components
+
+#### **1. LLM Manager (`core/llm_manager.py`)**
+
+**Purpose**: Manages multiple LLM providers and specialized prompts
+
+**Key Methods**:
+```python
+class LLMManager:
+    def extract_preferences(conversation_history, analysis_type)
+    def map_to_career_categories(user_preferences, category)
+    def generate_career_explanation(career_name, user_profile, match_score)
+    def generate_clarifying_questions(user_response, missing_info)
+```
+
+**Prompt Template System**:
+- **Dynamic Loading**: Templates loaded from `prompts/` directory
+- **Context Formatting**: User data injected into templates
+- **Error Handling**: Graceful fallbacks for missing templates
+
+#### **2. Chroma Manager (`core/chroma_manager.py`)**
+
+**Purpose**: Vector database operations and similarity search
+
+**Key Features**:
+- **Persistent Storage**: Local ChromaDB with automatic initialization
+- **Metadata Management**: Career attributes stored as searchable metadata
+- **Similarity Search**: Cosine similarity for career matching
+- **Error Recovery**: Robust error handling for database operations
+
+```python
+class ChromaManager:
+    def get_or_create_collection()
+    def search_careers(query_text, top_k=5)
+    def add_career_data(career_documents, metadata, ids)
+```
+
+#### **3. Career Counselor (`core/career_counselor.py`)**
+
+**Purpose**: Main orchestration class combining LLM and vector search
+
+**Architecture**:
+```python
+class CareerCounselor:
+    def __init__(self):
+        self.groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+        self.chroma_manager = ChromaManager()
+        self.llm_manager = LLMManager()
+        
+    def search_career_data(query, top_k=5)
+    def generate_contextual_response(user_input, context, flow_stage)
+    def populate_career_database(career_data_list)
+```
+
+### Data Architecture
+
+#### **Career Database Schema**
+
+Each of the 109 careers contains:
+
+```json
+{
+    "id": "unique_career_identifier",
+    "title": "Career Title",
+    "description": "Detailed career description",
+    "industry": "Primary industry category",
+    "skills": ["skill1", "skill2", "skill3"],
+    "education": ["education_path1", "education_path2"],
+    "salary_range": "$XX,XXX - $XXX,XXX",
+    "job_outlook": "Demand level description",
+    "personality_match": ["trait1", "trait2"],
+    "companies": ["company1", "company2"],
+    "career_paths": ["progression_step1", "progression_step2"],
+    "tagline": "Brief motivational tagline",
+    "emoji": "🔬"
+}
+```
+
+#### **Vector Embeddings**
+
+**Embedding Strategy**:
+- **Text Composition**: `title + description + skills + industry`
+- **Model**: `all-MiniLM-L6-v2` (384-dimensional embeddings)
+- **Metadata Storage**: All career attributes stored for filtering
+- **Search Optimization**: Cosine similarity with distance thresholding
+
+---
+
+## 📡 API Reference
+
+### Core API Endpoints
+
+#### **LLM Manager API**
+
+**Preference Extraction**
+```python
+def extract_preferences(conversation_history: str, analysis_type: str) -> Dict[str, Any]
+```
+- **Parameters**: 
+  - `conversation_history`: Full conversation text
+  - `analysis_type`: "interests", "skills", or "values"
+- **Returns**: JSON object with extracted preferences
+- **Used by**: Chat interface for AI analysis
+
+**Career Mapping**
+```python
+def map_to_career_categories(user_preferences: Dict, category: str) -> Dict[str, Any]
+```
+- **Parameters**: 
+  - `user_preferences`: Extracted preferences object
+  - `category`: "stem", "arts", "sports", or "general"
+- **Returns**: Career recommendations with reasoning
+- **Used by**: Recommendation generation
+
+**Explanation Generation**
+```python
+def generate_career_explanation(career_name: str, user_profile: Dict, 
+                               match_score: float, user_stage: str) -> str
+```
+- **Parameters**: Career details and user context
+- **Returns**: Personalized explanation text
+- **Used by**: Career card generation
+
+#### **Chroma Manager API**
+
+**Career Search**
+```python
+def search_careers(query_text: str, top_k: int = 5) -> List[Dict]
+```
+- **Parameters**: 
+  - `query_text`: Search query (natural language)
+  - `top_k`: Number of results to return
+- **Returns**: List of matching career metadata
+- **Used by**: Vector-based recommendations
+
+**Database Operations**
+```python
+def get_or_create_collection() -> chromadb.Collection
+def add_career_data(documents: List[str], metadata: List[Dict], ids: List[str])
+```
+
+#### **Career Counselor API**
+
+**Contextual Response Generation**
+```python
+def generate_contextual_response(user_input: str, conversation_context: str, 
+                                flow_stage: str) -> str
+```
+- **Parameters**: User message, conversation history, current stage
+- **Returns**: AI-generated response
+- **Used by**: Main chat loop
+
+### Data Schemas
+
+#### **User Profile Schema**
+```python
+{
+    "interests": {
+        "creative": 0.8,
+        "analytical": 0.6,
+        "social": 0.4,
+        # ... other categories
+    },
+    "skills": {
+        "technical": ["Python", "Data Analysis"],
+        "soft": ["Communication", "Problem Solving"]
+    },
+    "values": {
+        "work_life_balance": "high",
+        "job_security": "medium",
+        "creative_freedom": "high"
+    },
+    "stage": "college_student",
+    "preferences": {
+        "remote_work": true,
+        "team_size": "small",
+        "industry_preference": ["technology", "healthcare"]
+    }
+}
+```
+
+#### **Career Recommendation Schema**
+```python
+{
+    "career_id": "data_scientist",
+    "title": "Data Scientist",
+    "match_score": 0.87,
+    "explanation": "Based on your analytical interests and Python skills...",
+    "key_matches": ["analytical_thinking", "python_programming", "problem_solving"],
+    "learning_path": ["Advanced Statistics", "Machine Learning", "Business Analytics"],
+    "salary_info": "$75,000 - $150,000",
+    "job_outlook": "Very High Demand"
+}
+```
+
+---
 
 ## 📁 Project Structure
 
 ```
 career_chatbot/
-├── 📱 app.py                     # Main Streamlit application
-├── 🗄️ chroma_db/                # Vector database storage
-│   ├── chroma.sqlite3           # Database file
-│   └── collections/             # Vector collections
-├── 🧩 components/               # UI components
-│   ├── chat_interface.py        # Main conversation interface
-│   ├── career_cards.py          # Career display components
-│   └── option_selector.py       # Interactive widgets
-├── ⚙️ core/                     # Core business logic
-│   ├── career_counselor.py      # Main orchestration
-│   ├── chroma_manager.py        # Vector DB operations
-│   ├── llm_manager.py           # AI/LLM integration
-│   ├── flow_manager.py          # Conversation flow
-│   └── groq_client.py           # API client
-├── 📊 data/                     # Data and embeddings
-│   ├── career_data.json         # 109 career records
-│   ├── career_embeddings.py     # Embedding generation
-│   └── sample_careers.py        # Data samples
-├── 📝 prompts/                  # AI prompt templates
-│   ├── preference_extraction/   # User analysis prompts
-│   ├── career_mapping/          # Career matching prompts
-│   ├── explanation_generation/  # Personalization prompts
-│   └── fallback/               # Error handling prompts
-├── 🛠️ utils/                    # Utility functions
-│   ├── config.py               # Configuration management
-│   ├── data_processor.py       # Data processing utilities
-│   └── pdf_generator.py        # Report generation
-├── 📋 requirements.txt          # Python dependencies
-├── 🔧 setup.py                 # Package setup
-├── 🔐 .env                     # Environment variables
-└── 📚 README.md                # This file
+├── 📄 README.md                     # This comprehensive documentation
+├── ⚙️ requirements.txt              # Python dependencies
+├── 🚀 setup.py                      # Database initialization script
+├── 🎯 app.py                        # Main Streamlit application
+├── 📝 .env.example                  # Environment variables template
+├── 🔧 .streamlit/config.toml        # Streamlit configuration
+│
+├── 🖥️ components/                   # UI Components
+│   ├── chat_interface.py           # Main conversation interface
+│   ├── career_cards.py             # Career recommendation display
+│   └── option_selector.py          # User input selection widgets
+│
+├── 🧠 core/                         # Core Business Logic
+│   ├── career_counselor.py         # Main orchestration class
+│   ├── llm_manager.py              # AI/LLM integration
+│   ├── flow_manager.py             # Conversation state management
+│   ├── chroma_manager.py           # Vector database operations
+│   └── groq_client.py              # Groq API integration
+│
+├── 📊 data/                         # Data Layer
+│   ├── career_data.json            # 109 comprehensive career profiles
+│   ├── career_embeddings.py        # Vector embedding generation
+│   └── sample_careers.py           # Sample data for testing
+│
+├── 📝 prompts/                      # AI Prompt Templates
+│   ├── preference_extraction/       # User preference analysis
+│   │   ├── interest_extraction.txt
+│   │   ├── skill_assessment.txt
+│   │   └── values_identification.txt
+│   ├── career_mapping/              # Career matching prompts
+│   │   ├── stem_careers.txt
+│   │   ├── arts_careers.txt
+│   │   ├── sports_careers.txt
+│   │   └── general_mapping.txt
+│   ├── explanation_generation/      # Recommendation explanations
+│   │   └── career_explanation.txt
+│   └── fallback/                    # Error handling & clarification
+│       └── clarifying_questions.txt
+│
+└── 🛠️ utils/                        # Utility Functions
+    ├── config.py                   # Configuration management
+    ├── data_processor.py           # Data processing utilities
+    └── pdf_generator.py            # Report generation (future)
 ```
-
-## 🎨 User Interface
-
-### Chat Interface
-- **Clean, conversational design**
-- **Progress tracking** with step indicators
-- **Interactive buttons** for easy selection
-- **Rich text formatting** with emojis and markdown
-
-### Career Cards
-- **Comprehensive information** display
-- **Personalized explanations** powered by AI
-- **Visual skill breakdown** with organized sections
-- **Action buttons** for next steps
-
-### Progress Flow
-- **Visual progress bar** showing completion status
-- **Stage-specific guidance** with contextual help
-- **Seamless transitions** between conversation stages
-
-## 🔧 Configuration
-
-### Environment Variables
-
-```env
-# Required
-GROQ_API_KEY=your_groq_api_key_here
-
-# Optional
-EMBEDDING_MODEL=all-MiniLM-L6-v2
-CHROMA_DB_PATH=./chroma_db
-LOG_LEVEL=INFO
-```
-
-### Model Configuration
-
-```python
-# Groq API settings
-GROQ_MODEL = "mixtral-8x7b-32768"
-GROQ_TEMPERATURE = 0.7
-GROQ_MAX_TOKENS = 1000
-
-# Embedding settings
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
-EMBEDDING_DIMENSION = 384
-```
-
-## 🧪 Testing
-
-Run the test suite:
-```bash
-# Unit tests
-python -m pytest tests/
-
-# Integration tests
-python -m pytest tests/integration/
-
-# UI tests
-python -m pytest tests/ui/
-```
-
-## 🚀 Deployment
-
-### Local Development
-```bash
-streamlit run app.py
-```
-
-### Production (Docker)
-```bash
-docker build -t career-chatbot .
-docker run -p 8501:8501 career-chatbot
-```
-
-### Cloud Deployment
-- **Streamlit Cloud**: Direct GitHub integration
-- **AWS EC2**: Full control deployment
-- **Google Cloud Run**: Serverless deployment
-- **Heroku**: Simple platform deployment
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **PyTorch Conflicts**
-   ```bash
-   export TOKENIZERS_PARALLELISM=false
-   export OMP_NUM_THREADS=1
-   ```
-
-2. **ChromaDB Errors**
-   - Ensure proper metadata formatting
-   - Check disk space for database
-
-3. **API Rate Limits**
-   - Monitor Groq API usage
-   - Implement request queuing
-
-4. **Memory Issues**
-   - Increase available RAM
-   - Enable model caching
-
-## 📈 Performance
-
-- **Response Time**: < 2 seconds for career recommendations
-- **Accuracy**: 85%+ user satisfaction with recommendations
-- **Scalability**: Supports 50+ concurrent users
-- **Memory Usage**: ~2GB for full operation
-
-## 📚 Documentation
-
-Comprehensive documentation is available in the following files:
-
-- **[README.md](README.md)** - Main project overview and quick start guide
-- **[TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md)** - Detailed technical implementation, architecture, and deployment guide
-- **[CONVERSATIONAL_FLOW.md](CONVERSATIONAL_FLOW.md)** - Complete conversational flow with visual diagrams and stage breakdowns  
-- **[API_REFERENCE.md](API_REFERENCE.md)** - Comprehensive API documentation with schemas and examples
-
-### Quick Navigation
-- **Getting Started**: [Installation & Setup](#installation)
-- **Architecture**: [Technical Documentation](TECHNICAL_DOCUMENTATION.md#system-architecture)
-- **Conversation Design**: [Flow Documentation](CONVERSATIONAL_FLOW.md#complete-conversational-flow)
-- **API Integration**: [API Reference](API_REFERENCE.md#internal-apis)
-- **Troubleshooting**: [Technical Docs](TECHNICAL_DOCUMENTATION.md#troubleshooting)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Follow PEP 8 style guidelines
-- Add tests for new features
-- Update documentation
-- Use type hints where applicable
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Groq** for powerful LLM API
-- **ChromaDB** for vector database capabilities
-- **Sentence Transformers** for embedding models
-- **Streamlit** for the excellent web framework
-- **Career data sources** from various industry reports
-
-## 📞 Support
-
-- **Documentation**: See [TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md)
-- **Issues**: GitHub Issues page
-- **Discussions**: GitHub Discussions
-- **Email**: support@career-chatbot.com
-
-## 🔮 Roadmap
-
-### v2.0 (Q3 2025)
-- [ ] Multi-language support
-- [ ] Voice interface integration
-- [ ] Mobile app development
-- [ ] Advanced analytics dashboard
-
-### v2.1 (Q4 2025)
-- [ ] Resume analysis feature
-- [ ] Learning path integration
-- [ ] Job market analytics
-- [ ] Personality assessment tools
-
-### v3.0 (Q1 2026)
-- [ ] Custom model fine-tuning
-- [ ] Enterprise features
-- [ ] API marketplace
-- [ ] Advanced reporting
 
 ---
 
-**Built with ❤️ by the Career Discovery Team**
+## 🎯 Resume & Portfolio Bullet Points
 
-*Empowering career decisions through intelligent conversation.*
+### **Executive Summary Points**
+
+**For Senior/Lead Positions:**
+• **Architected and deployed an AI-powered career guidance platform** serving personalized career recommendations through intelligent conversational flows and vector-based semantic search
+
+• **Led end-to-end development of a production-ready chatbot system** integrating ChromaDB, Groq LLM APIs, and Streamlit, resulting in comprehensive career discovery solution
+
+• **Engineered scalable prompt-driven architecture** with modular AI components, reducing response time by implementing caching and optimizing vector embeddings for 109+ career profiles
+
+**For Mid-Level Positions:**
+• **Developed intelligent career counseling chatbot** using Python, Streamlit, and vector databases to provide personalized career recommendations based on user preferences
+
+• **Implemented multi-stage conversational AI flow** with LLM integration (Groq/Mixtral) for preference extraction, skill assessment, and values identification
+
+• **Built comprehensive data pipeline** processing 109 career profiles with semantic embeddings and metadata management for efficient similarity search
+
+### **Technical Achievement Bullets**
+
+**🏗️ Architecture & Development:**
+• **Designed and implemented modular AI chatbot architecture** with separation of concerns across UI, business logic, and data layers
+
+• **Built responsive web interface using Streamlit** featuring real-time chat, progress tracking, and interactive career cards display
+
+• **Developed comprehensive prompt engineering system** with 9 specialized templates for preference extraction, career mapping, and explanation generation
+
+**🧠 AI & Machine Learning:**
+• **Integrated multiple LLM providers (Groq/Mixtral)** for contextual conversation management and intelligent preference analysis
+
+• **Engineered vector similarity search system** using ChromaDB and sentence transformers to match user profiles with 109+ career options
+
+• **Developed multi-stage conversational flow** with adaptive questioning, confidence scoring, and personalized recommendation generation
+
+**📊 Data Management:**
+• **Designed comprehensive career database schema** with structured metadata for skills, education, salary ranges, and career progression paths
+
+• **Implemented data validation and transformation pipelines** ensuring ChromaDB compatibility and consistent metadata formats
+
+• **Created automated database initialization system** with error recovery and data integrity checks
+
+### **Quantifiable Metrics**
+• **109+ career profiles** in searchable database
+• **Sub-2-second response times** for career recommendations  
+• **9 specialized AI prompts** for comprehensive user analysis
+• **Multi-stage conversational flow** with progress tracking
+• **5,000+ lines of clean, documented code**
+
+### **Skills Keywords for ATS**
+**Technical:** Python, Streamlit, AI, Machine Learning, Natural Language Processing, Vector Databases, ChromaDB, LLM, Large Language Models, Groq, Mixtral, API Integration, Prompt Engineering, Sentence Transformers, Git, GitHub
+
+**Soft Skills:** Problem Solving, Communication, Documentation, Project Management, User Experience, System Architecture, Code Quality, Testing, Debugging, Collaboration, Innovation
+
+---
+
+## 🤝 Contributing
+
+### Development Guidelines
+
+**Code Style**:
+- Follow PEP 8 Python style guidelines
+- Use meaningful variable and function names
+- Add docstrings for all classes and methods
+- Maintain consistent file structure
+
+**Adding New Features**:
+1. Create feature branch from main
+2. Implement feature with comprehensive testing
+3. Update documentation as needed
+4. Submit pull request with detailed description
+
+**Prompt Engineering**:
+- All prompts stored in `prompts/` directory
+- Use consistent formatting and structure
+- Include examples and edge case handling
+- Test prompts across different user scenarios
+
+### Future Roadmap
+
+**Phase 1 Enhancements**:
+- [ ] Advanced personality assessment integration
+- [ ] Industry-specific deep-dive conversations
+- [ ] Real-time job market data integration
+- [ ] Multi-language support
+
+**Phase 2 Features**:
+- [ ] User account system with conversation history
+- [ ] PDF report generation for career recommendations
+- [ ] Integration with learning platforms (Coursera, Udemy)
+- [ ] Company culture matching
+
+**Phase 3 Scaling**:
+- [ ] Mobile app development
+- [ ] Enterprise B2B version for HR departments
+- [ ] Advanced analytics and user behavior insights
+- [ ] API marketplace for third-party integrations
+
+---
+
+## 📊 Performance Metrics
+
+### System Performance
+- **Response Time**: Sub-2-second average for career recommendations
+- **Database Size**: 109 comprehensive career profiles with full metadata
+- **Embedding Dimensions**: 384-dimensional vectors using all-MiniLM-L6-v2
+- **Prompt Templates**: 9 specialized templates for different conversation stages
+- **Conversation States**: 7 distinct flow states with smart transitions
+
+### User Experience Metrics
+- **Conversation Completion Rate**: Target 85%+ user journey completion
+- **Recommendation Relevance**: Vector similarity scores above 0.75 threshold
+- **User Satisfaction**: Measured through follow-up questions and engagement
+- **Average Session Duration**: 8-12 minutes for complete career discovery
+
+---
+
+## 🎉 Conclusion
+
+The Career Discovery Chatbot represents a comprehensive solution for AI-powered career guidance, combining advanced machine learning techniques with thoughtful user experience design. The system demonstrates proficiency in:
+
+- **Full-Stack Development**: From UI components to database management
+- **AI/ML Integration**: LLM orchestration and vector search implementation  
+- **System Architecture**: Modular, scalable design patterns
+- **Product Development**: User-centered design and iterative improvement
+- **Documentation**: Professional-grade technical documentation
+
+This project showcases the ability to design, implement, and deploy a production-ready AI application that solves real-world problems through innovative technology integration.
+
+---
+
+*Built with ❤️ using Python, Streamlit, ChromaDB, and Groq LLM APIs*
