@@ -20,8 +20,7 @@ An intelligent AI-powered career guidance system that helps users discover perso
 7. [Technical Implementation](#technical-implementation)
 8. [API Reference](#api-reference)
 9. [Project Structure](#project-structure)
-10. [Resume & Portfolio](#resume--portfolio)
-11. [Contributing](#contributing)
+10. [Contributing](#contributing)
 
 ---
 
@@ -562,61 +561,6 @@ career_chatbot/
     ├── data_processor.py           # Data processing utilities
     └── pdf_generator.py            # Report generation (future)
 ```
-
----
-
-## 🎯 Resume & Portfolio Bullet Points
-
-### **Executive Summary Points**
-
-**For Senior/Lead Positions:**
-• **Architected and deployed an AI-powered career guidance platform** serving personalized career recommendations through intelligent conversational flows and vector-based semantic search
-
-• **Led end-to-end development of a production-ready chatbot system** integrating ChromaDB, Groq LLM APIs, and Streamlit, resulting in comprehensive career discovery solution
-
-• **Engineered scalable prompt-driven architecture** with modular AI components, reducing response time by implementing caching and optimizing vector embeddings for 109+ career profiles
-
-**For Mid-Level Positions:**
-• **Developed intelligent career counseling chatbot** using Python, Streamlit, and vector databases to provide personalized career recommendations based on user preferences
-
-• **Implemented multi-stage conversational AI flow** with LLM integration (Groq/Mixtral) for preference extraction, skill assessment, and values identification
-
-• **Built comprehensive data pipeline** processing 109 career profiles with semantic embeddings and metadata management for efficient similarity search
-
-### **Technical Achievement Bullets**
-
-**🏗️ Architecture & Development:**
-• **Designed and implemented modular AI chatbot architecture** with separation of concerns across UI, business logic, and data layers
-
-• **Built responsive web interface using Streamlit** featuring real-time chat, progress tracking, and interactive career cards display
-
-• **Developed comprehensive prompt engineering system** with 9 specialized templates for preference extraction, career mapping, and explanation generation
-
-**🧠 AI & Machine Learning:**
-• **Integrated multiple LLM providers (Groq/Mixtral)** for contextual conversation management and intelligent preference analysis
-
-• **Engineered vector similarity search system** using ChromaDB and sentence transformers to match user profiles with 109+ career options
-
-• **Developed multi-stage conversational flow** with adaptive questioning, confidence scoring, and personalized recommendation generation
-
-**📊 Data Management:**
-• **Designed comprehensive career database schema** with structured metadata for skills, education, salary ranges, and career progression paths
-
-• **Implemented data validation and transformation pipelines** ensuring ChromaDB compatibility and consistent metadata formats
-
-• **Created automated database initialization system** with error recovery and data integrity checks
-
-### **Quantifiable Metrics**
-• **109+ career profiles** in searchable database
-• **Sub-2-second response times** for career recommendations  
-• **9 specialized AI prompts** for comprehensive user analysis
-• **Multi-stage conversational flow** with progress tracking
-• **5,000+ lines of clean, documented code**
-
-### **Skills Keywords for ATS**
-**Technical:** Python, Streamlit, AI, Machine Learning, Natural Language Processing, Vector Databases, ChromaDB, LLM, Large Language Models, Groq, Mixtral, API Integration, Prompt Engineering, Sentence Transformers, Git, GitHub
-
-**Soft Skills:** Problem Solving, Communication, Documentation, Project Management, User Experience, System Architecture, Code Quality, Testing, Debugging, Collaboration, Innovation
 
 ---
 
