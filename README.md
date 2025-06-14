@@ -542,20 +542,20 @@ career_chatbot/
 │   └── sample_careers.py           # Sample data for testing
 │
 ├── 📝 prompts/                      # AI Prompt Templates
-│   ├── preference_extraction/       # User preference analysis
-│   │   ├── interest_extraction.txt
-│   │   ├── skill_assessment.txt
-│   │   └── values_identification.txt
-│   ├── career_mapping/              # Career matching prompts
-│   │   ├── stem_careers.txt
-│   │   ├── arts_careers.txt
-│   │   ├── sports_careers.txt
-│   │   └── general_mapping.txt
-│   ├── explanation_generation/      # Recommendation explanations
-│   │   └── career_explanation.txt
-│   └── fallback/                    # Error handling & clarification
-│       └── clarifying_questions.txt
-│
+    ├── preference_extraction/       # User preference analysis
+    │   ├── interest_extraction.txt
+    │   ├── skill_assessment.txt
+    │   └── values_identification.txt
+    ├── career_mapping/              # Career matching prompts
+    │   ├── stem_careers.txt
+    │   ├── arts_careers.txt
+    │   ├── sports_careers.txt
+    │   └── general_mapping.txt
+    ├── explanation_generation/      # Recommendation explanations
+    │   └── career_explanation.txt
+    └── fallback/                    # Error handling & clarification
+        └── clarifying_questions.txt
+
 
 ---
 
