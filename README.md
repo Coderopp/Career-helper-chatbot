@@ -516,48 +516,50 @@ def generate_contextual_response(user_input: str, conversation_context: str,
 ## 📁 Project Structure
 
 ```
-career_chatbot/
-├── 📄 README.md                     # This comprehensive documentation
-├── ⚙️ requirements.txt              # Python dependencies
-├── 🚀 setup.py                      # Database initialization script
-├── 🎯 app.py                        # Main Streamlit application
-├── 📝 .env.example                  # Environment variables template
-├── 🔧 .streamlit/config.toml        # Streamlit configuration
-│
-├── 🖥️ components/                   # UI Components
-│   ├── chat_interface.py           # Main conversation interface
-│   ├── career_cards.py             # Career recommendation display
-│   └── option_selector.py          # User input selection widgets
-│
-├── 🧠 core/                         # Core Business Logic
-│   ├── career_counselor.py         # Main orchestration class
-│   ├── llm_manager.py              # AI/LLM integration
-│   ├── flow_manager.py             # Conversation state management
-│   ├── chroma_manager.py           # Vector database operations
-│   └── groq_client.py              # Groq API integration
-│
-├── 📊 data/                         # Data Layer
-│   ├── career_data.json            # 109 comprehensive career profiles
-│   ├── career_embeddings.py        # Vector embedding generation
-│   └── sample_careers.py           # Sample data for testing
-│
-├── 📝 prompts/                      # AI Prompt Templates
-    ├── preference_extraction/       # User preference analysis
-    │   ├── interest_extraction.txt
-    │   ├── skill_assessment.txt
-    │   └── values_identification.txt
-    ├── career_mapping/              # Career matching prompts
-    │   ├── stem_careers.txt
-    │   ├── arts_careers.txt
-    │   ├── sports_careers.txt
-    │   └── general_mapping.txt
-    ├── explanation_generation/      # Recommendation explanations
-    │   └── career_explanation.txt
-    └── fallback/                    # Error handling & clarification
-        └── clarifying_questions.txt
+.
+├── app.py
+├── components
+│   ├── career_cards.py
+│   ├── chat_interface.py
+│   └── option_selector.py
+├── core
+│   ├── career_counselor.py
+│   ├── chroma_manager.py
+│   ├── flow_manager.py
+│   ├── groq_client.py
+│   └── llm_manager.py
+├── data
+│   ├── career_data.json
+│   ├── career_embeddings.py
+│   └── sample_careers.py
+├── .env.example
+├── .gitignore
+├── prompts
+│   ├── career_mapping
+│   │   ├── arts_careers.txt
+│   │   ├── general_mapping.txt
+│   │   ├── sports_careers.txt
+│   │   └── stem_careers.txt
+│   ├── explanation_generation
+│   │   └── career_explanation.txt
+│   ├── fallback
+│   │   └── clarifying_questions.txt
+│   └── preference_extraction
+│       ├── interest_extraction.txt
+│       ├── skill_assessment.txt
+│       └── values_identification.txt
+├── README.md
+├── requirements.txt
+├── runtime.txt
+├── setup.py
+└── .streamlit
+    ├── config.toml
+    └── secrets.toml.template
 
 
 ---
+---
+
 
 ## 🤝 Contributing
 
