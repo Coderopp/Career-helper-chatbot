@@ -556,11 +556,6 @@ career_chatbot/
 │   └── fallback/                    # Error handling & clarification
 │       └── clarifying_questions.txt
 │
-└── 🛠️ utils/                        # Utility Functions
-    ├── config.py                   # Configuration management
-    ├── data_processor.py           # Data processing utilities
-    └── pdf_generator.py            # Report generation (future)
-```
 
 ---
 
